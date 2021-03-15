@@ -1,3 +1,6 @@
+<?php
+include_once 'includes/autoLoader.inc.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +10,9 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <?php
+        $obj = new Test();
+        echo $obj->getUsers();
+    ?>
 </body>
 </html>
