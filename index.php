@@ -12,10 +12,11 @@ include_once 'includes/autoLoader.inc.php';
 <body>
 <h1>Helo</h1>
     <?php
-        $username="nidzao";
-        $email="nidazic@gmail.com";
+        $username="naaagaao";
+        $email="iaaaaniao@gmail.com";
+        $password="asadasd";
         $obj = new Test();
-        $obj->updateUser($username,$email);
+        $obj->insertUsers($username,$email,$password);
     ?>
 </body>
 </html>

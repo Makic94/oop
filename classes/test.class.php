@@ -11,24 +11,33 @@ class Test extends Base {
                     echo $row->username."<br>";
                 }
         }
-        else echo "No users found.<br>";
+        else Message::error("No users found.");
     }
     public function insertUsers($username,$email,$password) {
-        $sql="INSERT INTO users (username,email,password) VALUES ('$username','$email','$password')";
+        $sql="SELECT username,email FROM users WHERE username='$username' AND email='$email'";
         $stmt = $this->connect()->query($sql);
-        if($stmt)   echo "Registration completed.<br>";
-        else echo "Failed to register.<br>";
-    }
+        if(rowCount($this->connect(),$sql)!=0)
+            {
+                Message::error("Username/email already exists, please change.");
+            }
+        else
+            {
+                $sql="INSERT INTO users (username,email,password) VALUES ('$username','$email','$password')";
+                $stmt = $this->connect()->query($sql);
+                if($stmt) Message::success("Registration successfull.");
+                else Message::error("Registration failed.");
+            }
+        }
     public function updateUser($username,$email)    {
         $sql="SELECT * FROM users";
         if(rowCount($this->connect(),$sql)!=0)
             {
                 $sql="UPDATE users SET username='$username', email='$email' ";
                 $stmt = $this->connect()->query($sql);
-                if($stmt)   echo "Updated username and email.<br>";
-                else echo "Failed to update.<br>";
+                if($stmt) Message::success("Updated username and email successfull.");
+                else Message::error("Failed to update.");
             }
-        else echo "No users found to update.<br>";
+        else Message::error("No users found to update.");
     }
 }
 ?>
