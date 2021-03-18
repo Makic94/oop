@@ -10,9 +10,12 @@ include_once 'includes/autoLoader.inc.php';
     <title>Document</title>
 </head>
 <body>
+<h1>Helo</h1>
     <?php
+        $username="nidzao";
+        $email="nidazic@gmail.com";
         $obj = new Test();
-        echo $obj->getUsers();
+        $obj->updateUser($username,$email);
     ?>
 </body>
 </html>
