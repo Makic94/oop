@@ -7,16 +7,20 @@ include_once 'includes/autoLoader.inc.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Time Sell</title>
 </head>
 <body>
-<h1>Helo</h1>
+<h1>Time Sell</h1>
     <?php
-        $username="naaagaao";
-        $email="iaaaaniao@gmail.com";
-        $password="asadasd";
-        $obj = new Test();
-        $obj->insertUsers($username,$email,$password);
+    $fname="boaaaraaaaaaaaaako";
+    $lname="miaalaojaaaaaaaaako";
+    $username="aaaaaiako";
+    $emal="iaaaao@miko.com";
+    $password="miaaaako123";
+    $avatar="";
+    $gender="female";
+    $obj=new User();
+    $obj->insertUsers($fname,$lname,$username,$emal,$password,$avatar,$gender);
     ?>
 </body>
 </html>
