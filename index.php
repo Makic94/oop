@@ -12,15 +12,16 @@ include_once 'includes/autoLoader.inc.php';
 <body>
 <h1>Time Sell</h1>
     <?php
-    $fname="boaaaraaaaaaaaaako";
-    $lname="miaalaojaaaaaaaaako";
-    $username="aaaaaiako";
-    $emal="iaaaao@miko.com";
-    $password="miaaaako123";
+    $fname="caa";
+    $lname="bbaaa";
+    $username="bbaa";
+    $email="aaaa@gmail.com";
+    $password="+-,.!@#$&*^?(?";
+    $password2="+-,.!@#$&*^?(?";
     $avatar="";
-    $gender="female";
-    $obj=new User();
-    $obj->insertUsers($fname,$lname,$username,$emal,$password,$avatar,$gender);
+    $gender="male";
+    $obj=new UsersContr();
+    $obj->createUser($fname,$lname,$username,$email,$password,$password2,$avatar,$gender);
     ?>
 </body>
 </html>

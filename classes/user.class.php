@@ -1,4 +1,4 @@
-<?php
+<?php/*
 include_once("functions/sqlFunctions.php");
 class User extends Base {
     public function getUsers()  {
@@ -14,8 +14,6 @@ class User extends Base {
         else Message::error("No users found.");
     }
     public function insertUsers($fname,$lname,$username,$email,$password,$avatar,$gender) {
-        if(userRegCheck($fname,$lname,$username,$email,$password,$avatar,$gender))
-        {
             $sqlU="SELECT username FROM users WHERE username='$username'";
             $stmt = $this->connect()->query($sqlU);
             $sqlE="SELECT email FROM users WHERE email='$email'";
@@ -30,12 +28,11 @@ class User extends Base {
                 }
             else
                 {
-                    $sql="INSERT INTO users (fname,lname,username,email,password,avatar,role,gender,deleted) VALUES ('$fname','$lname','$username','$email','$password','$avatar','user','$gender',0)";
+                    $sql="INSERT INTO users (fname,lname,username,email,password,avatar,gender,deleted,role_id) VALUES ('$fname','$lname','$username','$email','$password','$avatar','$gender',0,4)";
                     $stmt = $this->connect()->query($sql);
                     if($stmt) Message::success("Registration successfull.");
                     else Message::error("Registration failed.");
                 }
-        }
     }
     public function updateUser($username,$email)    {
         $sql="SELECT * FROM users";
@@ -48,5 +45,5 @@ class User extends Base {
             }
         else Message::error("No users found to update.");
     }
-}
+}*/
 ?>
