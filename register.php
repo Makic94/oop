@@ -1,5 +1,8 @@
 <?php
 include_once 'includes/autoLoader.inc.php';
+session_start();
+$obj=new UsersContr();
+$obj->checkSession();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,10 +10,14 @@ include_once 'includes/autoLoader.inc.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Sell</title>
+    <title>TimeSell</title>
 </head>
 <body>
-<h1>Time Sell</h1>
+<h1>Register</h1>
+<?php
+$obj=new UsersContr();
+$obj->checkSessionRole();
+?>
 <div id='reg'>
 <form action="register.php" method="POST">
 <input type="text" name="firstname" placeholder="First name *"><br><br>

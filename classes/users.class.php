@@ -7,6 +7,7 @@ class Users extends Base {
         $stmt=$this->connect()->prepare($sql);
         $stmt->execute([$fname,$lname,$username,$email,$password,$gender]);
     }
+
     protected function checkUname($username)
     {
         $sql="SELECT username FROM users WHERE username = ? ";
@@ -14,6 +15,7 @@ class Users extends Base {
         $stmt->execute([$username]);
         return $stmt->rowCount();
     }
+
     protected function checkEmail($email)
     {
         $sql="SELECT email FROM users WHERE email = ? ";
@@ -21,6 +23,7 @@ class Users extends Base {
         $stmt->execute([$email]);
         return $stmt->rowCount();
     }
+
     protected function checkPassword($username)
     {
         $sql="SELECT password FROM users WHERE username = ? ";
@@ -28,6 +31,33 @@ class Users extends Base {
         $stmt->execute([$username]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         return $row['password'];
+    }
+
+    protected function showUsername($username)
+    {
+        $sql="SELECT username FROM users WHERE username = ? ";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$username]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row['username'];
+    }
+
+    protected function showUserRole($username)
+    {
+        $sql="SELECT role_id FROM users WHERE username = ? ";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$username]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row['role_id'];
+    }
+
+    protected function showUserID($username)
+    {
+        $sql="SELECT id FROM users WHERE username = ? ";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$username]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row['id'];
     }
 }
 ?>

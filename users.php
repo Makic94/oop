@@ -2,7 +2,7 @@
 include_once 'includes/autoLoader.inc.php';
 session_start();
 $obj=new UsersContr();
-$obj->checkSession();
+$obj->checkSuperAdminRole();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,21 +13,10 @@ $obj->checkSession();
     <title>TimeSell</title>
 </head>
 <body>
-    <h1>Login</h1>
+    <h1>Users</h1>
     <?php
     $obj=new UsersContr();
     $obj->checkSessionRole();
-    ?>
-    <div id='login'>
-    <form action="login.php" method="POST">
-    <input type="text" name="username" placeholder="Username *"><br><br>
-    <input type="password" name="password" placeholder="Password *"><br><br>
-    <button>Login</button>
-    </form>
-    </div>
-    <?php
-    $obj=new UsersContr();
-    $obj->checkUser();
     ?>
 </body>
 </html>
