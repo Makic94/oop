@@ -13,7 +13,7 @@ include_once 'includes/autoLoader.inc.php';
     <h1>Welcome</h1>
     <?php
     session_start();
-    $obj=new UsersContr();
+    $obj=new SessionContr();
     $obj->checkSessionRole();
     ?>
 </body>

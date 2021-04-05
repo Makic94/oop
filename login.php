@@ -1,7 +1,7 @@
 <?php
 include_once 'includes/autoLoader.inc.php';
 session_start();
-$obj=new UsersContr();
+$obj=new SessionContr();
 $obj->checkSession();
 ?>
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ $obj->checkSession();
 <body>
     <h1>Login</h1>
     <?php
-    $obj=new UsersContr();
+    $obj=new SessionContr();
     $obj->checkSessionRole();
     ?>
     <div id='login'>

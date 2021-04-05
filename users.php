@@ -1,8 +1,6 @@
 <?php
 include_once 'includes/autoLoader.inc.php';
 session_start();
-$obj=new UsersContr();
-$obj->checkSuperAdminRole();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +13,16 @@ $obj->checkSuperAdminRole();
 <body>
     <h1>Users</h1>
     <?php
-    $obj=new UsersContr();
+    $obj=new SessionContr();
     $obj->checkSessionRole();
+    ?>
+    <form action="users.php" method="POST">
+    <input type="text" name="username" placeholder="Type the Username"><br><br>
+    <button>Search</button>
+    </form>
+    <?php
+    $obj=new SessionContr();
+    $obj->checkSuperAdminRole();
     ?>
 </body>
 </html>
