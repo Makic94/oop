@@ -67,16 +67,15 @@ class SessionContr extends UsersView{
         if(isset($_SESSION['id']) and isset($_SESSION['username']) and isset ($_SESSION['role'])) header("Location: index.php");
     }
 
-    public function checkSuperAdminRole(){
+    public function checkUsersRole(){
         if(isset($_SESSION['role'])) 
             {
                 if($_SESSION['role']!=1 and $_SESSION['role']!=2) header("Location: index.php");
 
                 elseif($_SESSION['role']==1)
                     {
-                        echo "<div id='userSet'>";
+                        echo "<br>";
                         echo UsersView::showUsers();
-                        echo "</div>";
                     }
                 elseif($_SESSION['role']==2)
                     {
