@@ -89,6 +89,14 @@ class SessionContr extends UsersView{
         else header("Location: index.php");
     }
 
+    public function checkSuperAdminRole(){
+        if(isset($_SESSION['role'])) 
+            {
+                if($_SESSION['role']!=1) header("Location: index.php");
+            }
+        else header("Location: index.php");
+    }
+
 }
 
 ?>

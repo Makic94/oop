@@ -2,7 +2,7 @@
 include_once 'includes/autoLoader.inc.php';
 session_start();
 $obj=new SessionContr();
-$obj->checkIfSessionExist();
+$obj->checkSuperAdminRole();
 $option=$_GET['option'];
 if($option=='update')
     {

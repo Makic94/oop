@@ -157,10 +157,20 @@ class UsersContr extends Users {
                 if($role=='admin'){$role=2;}
                 if($role=='premium'){$role=3;}
                 if($role=='user'){$role=4;}
-                $sql="UPDATE users SET role_id='$role' WHERE id='$id'";
-                $stmt = $this->connect()->query($sql);
-                if($stmt) Message::success("Updated the role successfully.");
-                else Message::error("Failed to update.");
+                if($id==$_SESSION['id'])
+                    {
+                        $sql="UPDATE users SET role_id='$role' WHERE id='$id'";
+                        $stmt = $this->connect()->query($sql);
+                        if($stmt) {$_SESSION['role']=$role; Message::success("Updated the role successfully.");}
+                        else Message::error("Failed to update.");
+                    }
+                else
+                    {
+                        $sql="UPDATE users SET role_id='$role' WHERE id='$id'";
+                        $stmt = $this->connect()->query($sql);
+                        if($stmt) Message::success("Updated the role successfully.");
+                        else Message::error("Failed to update.");
+                    }
                 }
             }
             //else Message::error("No users found to update.");
