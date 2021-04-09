@@ -69,22 +69,10 @@ class Users extends Base {
         for($i=0;$i<$num;$i++)
             {
                 $row = $stmt->fetch(PDO::FETCH_OBJ);
-                if($row->role_id==1)
-                {
-                    $row->role_id='super_admin';
-                }
-                if($row->role_id==2)
-                {
-                    $row->role_id='admin';
-                }
-                if($row->role_id==3)
-                {
-                    $row->role_id='premium';
-                }
-                if($row->role_id==4)
-                {
-                    $row->role_id='user';
-                }
+                if($row->role_id==1){$row->role_id='super_admin';}
+                if($row->role_id==2){$row->role_id='admin';}
+                if($row->role_id==3){$row->role_id='premium';}
+                if($row->role_id==4){$row->role_id='user';}
                 echo "<div class='users' data-id='{$row->id}' data-username='{$row->username}' data-role='{$row->role_id}'>ID: {$row->id}<br> Username: {$row->username}<br> Role: {$row->role_id}</div><br>";
             }
     }

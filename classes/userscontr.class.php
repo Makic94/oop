@@ -145,6 +145,27 @@ class UsersContr extends Users {
 
     }
 
+    public function updateUserRole()   {
+        //$sql="SELECT * FROM users";
+        //if(rowCount($this->connect(),$sql)!=0)
+            //{
+                if($_SERVER['REQUEST_METHOD']==='POST')
+                {
+                $id=$_POST['id'];
+                $role=$_POST['role'];
+                if($role=='super_admin'){$role=1;}
+                if($role=='admin'){$role=2;}
+                if($role=='premium'){$role=3;}
+                if($role=='user'){$role=4;}
+                $sql="UPDATE users SET role_id='$role' WHERE id='$id'";
+                $stmt = $this->connect()->query($sql);
+                if($stmt) Message::success("Updated the role successfully.");
+                else Message::error("Failed to update.");
+                }
+            }
+            //else Message::error("No users found to update.");
+    //}
+
     public function createSession($username){
         session_start();
         $_SESSION['id']=$this->showUserID($username);

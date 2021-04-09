@@ -38,7 +38,6 @@ session_start();
     $obj->checkUsersRole();
     ?>
     <hr>
-    <form action="users.php" method="POST">
     <input type="text" id="id" placeholder="ID" disabled><br><br>
     <input type="text" id="username" placeholder="Username" disabled><br><br>
     <select name="role" id="role">
@@ -49,7 +48,8 @@ session_start();
     <option value="user">user</option>
     </select>
     <button id="d1">Update</button>
-    </form>
+    <hr>
+    <div id="result"></div>
 </body>
 </html>
 <script>
@@ -62,5 +62,23 @@ session_start();
         $("#username").val(username);
         $("#role").val(role);
     })
+        $('#d1').click(function(){
+            let id=$('#id').val();
+            let username=$('#username').val();
+            let role=$('#role').val();
+            if(id=='')
+            {
+                $('#result').html('You must select the user first before updating their role!');
+            }
+            else
+            {
+                $.post("updateUser.php?option=update", {id:id,username:username,role:role}, function(response){
+                $('#result').html(response);
+                location.reload();
+                return false;
+            })
+            }
+            
+        })
 })
 </script>

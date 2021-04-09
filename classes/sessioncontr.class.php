@@ -67,6 +67,10 @@ class SessionContr extends UsersView{
         if(isset($_SESSION['id']) and isset($_SESSION['username']) and isset ($_SESSION['role'])) header("Location: index.php");
     }
 
+    public function checkIfSessionExist(){
+        if(!isset($_SESSION['id']) and !isset($_SESSION['username']) and !isset ($_SESSION['role'])) header("Location: index.php");
+    }
+
     public function checkUsersRole(){
         if(isset($_SESSION['role'])) 
             {
