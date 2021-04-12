@@ -1,0 +1,36 @@
+body{
+    padding: 2px;
+}
+.menu{
+    margin-right: 800px;
+}
+.menu, li{
+    float: right;
+    margin-right: 2px;
+    margin-left: 0px;
+}
+.menu, .one{
+    background-color: rgb(99, 97, 97);
+    list-style-type: none;
+    overflow: hidden;
+    margin-bottom: 0px;
+    padding-left: 2px;
+}
+.menu, .home{
+    float: left;
+}
+.users{
+   
+    width: fit-content;
+    padding: 2px;
+    cursor: pointer;
+}
+.users:hover{
+    background-color: lightgray;
+}
+#roleUpdate{
+    width: fit-content;
+    border: 1px solid black;
+    margin: 0px;
+    padding: 2px;
+}

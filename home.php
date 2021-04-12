@@ -1,8 +1,5 @@
 <?php
 include_once 'includes/autoLoader.inc.php';
-session_start();
-$obj=new SessionContr();
-$obj->checkSession();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,20 +14,9 @@ $obj->checkSession();
 </head>
 <body>
     <?php
+    session_start();
     $obj=new SessionContr();
     $obj->checkSessionRole();
-    ?>
-    <br>
-    <div id='login'>
-    <form action="login.php" method="POST">
-    <input type="text" name="username" placeholder="Username *"><br><br>
-    <input type="password" name="password" placeholder="Password *"><br><br>
-    <button class="btn btn-primary">Login</button>
-    </form>
-    </div>
-    <?php
-    $obj=new UsersContr();
-    $obj->checkUser();
     ?>
 </body>
 </html>

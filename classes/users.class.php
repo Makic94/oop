@@ -73,7 +73,16 @@ class Users extends Base {
                 if($row->role_id==2){$row->role_id='admin';}
                 if($row->role_id==3){$row->role_id='premium';}
                 if($row->role_id==4){$row->role_id='user';}
-                echo "<div class='users' data-id='{$row->id}' data-username='{$row->username}' data-role='{$row->role_id}'>ID: {$row->id}<br> Username: {$row->username}<br> Role: {$row->role_id}</div><br>";
+                echo "<div class='card' style='width: 18rem;'>";
+                echo "<img src='pictures/avatar.jpg' class='card-img-top' alt='...'>";
+                echo "<div class='card-body'>";
+                echo "<h5 class='card-title'>Username: {$row->username}</h5>";
+                echo "<div class='users' data-id='{$row->id}' data-username='{$row->username}' data-role='{$row->role_id}'>";
+                echo "<p class='card-text'>ID: {$row->id}<br>Role: {$row->role_id}</p>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div><br>";
+                /*echo "<div class='users' data-id='{$row->id}' data-username='{$row->username}' data-role='{$row->role_id}'>ID: {$row->id}<br> Username: {$row->username}<br> Role: {$row->role_id}</div><br>";*/
             }
     }
 

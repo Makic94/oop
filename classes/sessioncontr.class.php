@@ -15,38 +15,38 @@ class SessionContr extends UsersView{
                 if($_SESSION['role']==1)
                     {
                         echo '<div id="menu">';
-                        echo '<ul>';
-                        echo '<li><a href="index.php">Index</a></li>';
-                        echo '<li><a href="users.php">Users</a></li>';
-                        echo '<li><a href="logout.php">Logout</a></li>';
+                        echo '<ul class="one">';
+                        echo '<li class="home"><a class="btn btn-primary" href="home.php">Home</a></li>';
+                        echo '<li><a class="btn btn-primary" href="logout.php">Logout</a></li>';
+                        echo '<li><a class="btn btn-primary" href="adminPanel.php">Admin Panel</a></li>';
                         echo '</ul>';
                         echo '</div>';
                     }
                 elseif($_SESSION['role']==2)
                     {
                         echo '<div id="menu">';
-                        echo '<ul>';
-                        echo '<li><a href="index.php">Index</a></li>';
-                        echo '<li><a href="users.php">Users</a></li>';
-                        echo '<li><a href="logout.php">Logout</a></li>';
+                        echo '<ul class="one">';
+                        echo '<li class="home"><a class="btn btn-primary" href="home.php">Home</a></li>';
+                        echo '<li><a class="btn btn-primary" href="logout.php">Logout</a></li>';
+                        echo '<li><a class="btn btn-primary" href="adminPanel.php">Admin Panel</a></li>';
                         echo '</ul>';
                         echo '</div>';
                     }
                 elseif($_SESSION['role']==3)
                     {
                         echo '<div id="menu">';
-                        echo '<ul>';
-                        echo '<li><a href="index.php">Index</a></li>';
-                        echo '<li><a href="logout.php">Logout</a></li>';
+                        echo '<ul class="one">';
+                        echo '<li class="home"><a class="btn btn-primary" href="home.php">Home</a></li>';
+                        echo '<li><a class="btn btn-primary" href="logout.php">Logout</a></li>';
                         echo '</ul>';
                         echo '</div>';
                     }
                 elseif($_SESSION['role']==4)
                     {
                         echo '<div id="menu">';
-                        echo '<ul>';
-                        echo '<li><a href="index.php">Index</a></li>';
-                        echo '<li><a href="logout.php">Logout</a></li>';
+                        echo '<ul class="one">';
+                        echo '<li class="home"><a class="btn btn-primary" href="home.php">Home</a></li>';
+                        echo '<li><a class="btn btn-primary" href="logout.php">Logout</a></li>';
                         echo '</ul>';
                         echo '</div>';
                     }
@@ -54,27 +54,27 @@ class SessionContr extends UsersView{
         else
             {
                 echo '<div id="menu">';
-                echo '<ul>';
-                echo '<li><a href="index.php">Index</a></li>';
-                echo '<li><a href="register.php">Register</a></li>';
-                echo '<li><a href="login.php">Login</a></li>';
+                echo '<ul class="one">';
+                echo '<li class="home"><a class="btn btn-primary" href="home.php">Home</a></li>';
+                echo '<li><a class="btn btn-primary" href="login.php">Login</a></li>';
+                echo '<li><a class="btn btn-primary" href="register.php">Register</a></li>';
                 echo '</ul>';
                 echo '</div>';
             }
     }
 
     public function checkSession(){
-        if(isset($_SESSION['id']) and isset($_SESSION['username']) and isset ($_SESSION['role'])) header("Location: index.php");
+        if(isset($_SESSION['id']) and isset($_SESSION['username']) and isset ($_SESSION['role'])) header("Location: home.php");
     }
 
     public function checkIfSessionExist(){
-        if(!isset($_SESSION['id']) and !isset($_SESSION['username']) and !isset ($_SESSION['role'])) header("Location: index.php");
+        if(!isset($_SESSION['id']) and !isset($_SESSION['username']) and !isset ($_SESSION['role'])) header("Location: home.php");
     }
 
     public function checkUsersRole(){
         if(isset($_SESSION['role'])) 
             {
-                if($_SESSION['role']!=1 and $_SESSION['role']!=2) header("Location: index.php");
+                if($_SESSION['role']!=1 and $_SESSION['role']!=2) header("Location: home.php");
 
                 elseif($_SESSION['role']==1)
                     {
@@ -86,15 +86,15 @@ class SessionContr extends UsersView{
                         echo "ovo je admin";
                     }
             }
-        else header("Location: index.php");
+        else header("Location: home.php");
     }
 
     public function checkSuperAdminRole(){
         if(isset($_SESSION['role'])) 
             {
-                if($_SESSION['role']!=1) header("Location: index.php");
+                if($_SESSION['role']!=1) header("Location: home.php");
             }
-        else header("Location: index.php");
+        else header("Location: home.php");
     }
 
 }

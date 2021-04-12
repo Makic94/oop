@@ -146,9 +146,6 @@ class UsersContr extends Users {
     }
 
     public function updateUserRole()   {
-        //$sql="SELECT * FROM users";
-        //if(rowCount($this->connect(),$sql)!=0)
-            //{
                 if($_SERVER['REQUEST_METHOD']==='POST')
                 {
                 $id=$_POST['id'];
@@ -157,14 +154,7 @@ class UsersContr extends Users {
                 if($role=='admin'){$role=2;}
                 if($role=='premium'){$role=3;}
                 if($role=='user'){$role=4;}
-                if($id==$_SESSION['id'])
-                    {
-                        $sql="UPDATE users SET role_id='$role' WHERE id='$id'";
-                        $stmt = $this->connect()->query($sql);
-                        if($stmt) {$_SESSION['role']=$role; Message::success("Updated the role successfully.");}
-                        else Message::error("Failed to update.");
-                    }
-                else
+                if($id!=$_SESSION['id'])
                     {
                         $sql="UPDATE users SET role_id='$role' WHERE id='$id'";
                         $stmt = $this->connect()->query($sql);
@@ -173,15 +163,13 @@ class UsersContr extends Users {
                     }
                 }
             }
-            //else Message::error("No users found to update.");
-    //}
 
     public function createSession($username){
         session_start();
         $_SESSION['id']=$this->showUserID($username);
         $_SESSION['username']=$this->showUsername($username);
         $_SESSION['role']=$this->showUserRole($username);
-        header("Location: index.php");
+        header("Location: home.php");
     }
 
 }
